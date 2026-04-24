@@ -66,7 +66,7 @@ def upload():
         
         # --- ШАГ 3: ЛОГИРОВАНИЕ В DYNAMODB ---
         dynamo = boto3.resource('dynamodb', region_name=os.environ.get('AWS_REGION'))
-        table = dynamo.Table('CloudFiles')
+        table = dynamo.Table('VerifiedMedia')
         table.put_item(Item={
             'file_id': file.filename,
             'status': 'CLEAN_AND_VERIFIED',
